@@ -5,9 +5,25 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    name: 'world',
+    count: 0,
+    users: [
+      { id: 1, name: 'luck' },
+      { id: 2, name: 'merry' },
+      { id: 3, name: 'lisa' }
+    ]
   },
-
+  addNum(){
+    //this.data.count += 1; //界面数据不刷新
+    this.setData({
+      count: this.data.count + 1
+    })
+  },
+  reduceNum(){
+    this.setData({
+      count: this.data.count - 1
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */

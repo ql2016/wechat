@@ -1,2 +1,11 @@
 <!--pages/index/index.wxml-->
-<text>hello</text>
+<!-- 数据绑定 -->
+<view>hello {{name}}</view>
+
+<!-- 列表展示 -->
+<view wx:for="{{users}}" wx:key="{{item.id}}">{{item.name}}</view>
+
+<!-- 数据监听 -->
+<view>计数：{{count}}</view>
+<button size="mini" bindtap='addNum'>+</button>
+<button size='mini' bindtap='reduceNum'>-</button>

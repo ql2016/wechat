@@ -1,1 +1,46 @@
 /* pages/index/index.wxss */
+.box {
+  width: 100px;
+  height: 100px;
+  background: yellow;
+}
+.box-hover {
+  background: blue;
+  color: #fff;
+}
+.box1 {
+  width: 80px;
+  height: 80px;
+  background: red;
+}
+.box1-hover {
+  background: green;
+  color: #fff;
+}
+.input {
+  border: 1px solid gray;
+}
+
+.container1 {
+  background: goldenrod;
+  margin: 20px 0;
+  white-space: nowrap;
+}
+.item1 {
+  width: 50px;
+  height: 50px;
+  margin: 10px;
+  background: palevioletred;
+  display: inline-block;
+}
+.container2 {
+  background: blueviolet;
+  margin: 20px 0;
+  height: 200px;
+}
+.item2 {
+  width: 50px;
+  height: 50px;
+  margin: 10px;
+  background: palevioletred;
+}

@@ -3,9 +3,71 @@
 <view>hello {{name}}</view>
 
 <!-- 列表展示 -->
-<view wx:for="{{users}}" wx:key="{{item.id}}">{{item.name}}</view>
+<view wx:for="{{users}}" wx:key="{{item.id}}">{{item.name}}---{{item.email}}---{{item.phone}}</view>
 
 <!-- 数据监听 -->
 <view>计数：{{count}}</view>
 <button size="mini" bindtap='addNum'>+</button>
 <button size='mini' bindtap='reduceNum'>-</button>
+
+<button size='mini' open-type='getUserInfo' bindgetuserinfo='getUserInfo'>获取用户信息</button>
+
+<open-data type='userNickName'></open-data>
+
+<text>text文本类似span，行内元素\n</text>
+<text selectable='{{true}}'>文本长按可以选中\n</text>
+<text>Hello World\n</text>
+<text space='nbsp'>Hello World\n我是nbsp，我跟默认状态一样，哈哈哈\n</text>
+<text space='ensp'>Hello World\n我是ensp，我是半个中文字符的间距大小\n</text>
+<text space='emsp'>Hello World\n我是emsp，我是一个中文字符的间距大小\n</text>
+
+<text>5 &gt; 3\n</text>
+<text decode>5 &gt; 3我解码了\n</text>
+
+<button>默认按钮，块级元素</button>
+<button size='mini'>按钮</button>
+<button size='mini' type='primary'>按钮</button>
+<button size='mini' type='default'>按钮</button>
+<button size='mini' type='warn'>按钮</button>
+<button size='mini' plain>镂空效果按钮plain</button>
+<button size='mini' disabled>不可用效果按钮disabled</button>
+<button size='mini' loading>loading效果按钮</button>
+
+<view class="box" hover-class='box-hover'>
+  <view class="box1" hover-class='box1-hover' hover-stop-propagation>view hover-class</view>
+</view>
+
+<image src="/assets/tabbar/report.png"></image>
+<button bindtap="addImage">添加图片</button>
+<image src="{{img}}" bindload='imageLoad' show-menu-by-longpress></image>
+
+<input type="text" confirm-type='go' class="input"></input>
+<input class="input" value="放一个value值在input框里"></input>
+<input type="number" class="input"></input>
+<input type="idcard" class="input"></input>
+<input type="digit" class="input"></input>
+<input password class="input"></input>
+<input placeholder='请输入内容' class="input"></input>
+<input class="input" bindinput="bindinput" bindfocus="bindfocus" bindblur="bindblur"></input>
+
+<scroll-view class='container1' scroll-x upper-threshold='100' scroll-left='200' bindscrolltoupper="scrollToupper" bindscrolltolower="scrollTolower">
+  <view wx:for="{{10}}" wx:key="{{item}}" class="item1">{{item}}</view>
+</scroll-view>
+<scroll-view class='container2' scroll-y lower-threshold='100' scroll-top='200' bindscrolltoupper="scrollToupper" bindscrolltolower="scrollTolower">
+  <view wx:for="{{10}}" wx:key="{{item}}" class="item2">{{item}}</view>
+</scroll-view>
+
+<!-- wxs -->
+<wxs module='info'>
+  var message = 'Hello World';
+  var name = 'cody';
+  var sum = function(num1,num2){
+    return num1 + num2
+  }
+  module.exports = {
+    message: message,
+    name: name,
+    sum: sum
+  }
+</wxs>
+<view>{{info.message}} {{info.name}} {{info.sum(20,30)}}</view>

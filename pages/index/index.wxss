@@ -44,3 +44,10 @@
   margin: 10px;
   background: palevioletred;
 }
+
+/*touch*/
+.touch {
+  width: 200px;
+  height: 100px;
+  background: peru;
+}

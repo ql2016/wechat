@@ -14,6 +14,7 @@ Page({
     count: 0,
     users: [],
     img: '',
+    price: 5.678
   },
   addNum(){
     //this.data.count += 1; //界面数据不刷新
@@ -56,6 +57,23 @@ Page({
   },
   scrollTolower(event) {
     console.log('滚动到底部或者右边时',event)
+  },
+
+  /* touch */
+  touchStart(){
+    console.log('touchstart');
+  },
+  touchMove(){
+    console.log('touchmove');
+  },
+  touchEnd(){
+    console.log('touchend');
+  },
+  tap(){
+    console.log('tap');
+  },
+  longpress(){
+    console.log('longpress');
   },
   /**
    * 生命周期函数--监听页面加载

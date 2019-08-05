@@ -1,0 +1,15 @@
+var message = 'wxs文件里面的message';
+var name = 'wxs文件里面的name';
+function priceFixed(price,count){
+   var count = count || 2;
+   var f_price = parseFloat(price);
+   return price.toFixed(count);
+}
+// function dataFormat(timestamp,format){
+
+// }
+module.exports = {
+  message: message,
+  name: name,
+  priceFixed: priceFixed
+}

@@ -62,4 +62,33 @@
       bind:tap="tap"
       bind:longpress="longpress">touch事件</view>
 
+<view id="outer" bind:tap="outerTap">
+  事件对象target,currentTarget,outer
+  <view id="inner" bind:tap="innerTap">inner</view>
+</view>
+
+<h4>事件参数的传递</h4>
+<view class="flex">  
+  <block wx:for="{{items}}" wx:key="{{index}}">
+    <view class="flex-item" bind:tap="getIndex" data-index="{{index}}" data-item="{{item}}">{{item}}         </view>
+  </block>
+</view>
+
+<h4>事件捕获和冒泡</h4>
+<view class="outside" 
+      bind:tap="handleTap1"
+      capture-bind:tap="catchTap1">
+  最外层
+  <view class="middleside"
+        bind:tap="handleTap2"
+        capture-bind:tap="catchTap2">
+    中间层
+    <view class="innerside"
+          catch:tap="handleTap3"
+          capture-bind:tap="catchTap3">
+      最里层
+    </view>
+  </view>
+</view>
+
 

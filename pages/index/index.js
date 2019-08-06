@@ -14,7 +14,8 @@ Page({
     count: 0,
     users: [],
     img: '',
-    price: 5.678
+    price: 5.678,
+    items: ['aa','bb','cc']
   },
   addNum(){
     //this.data.count += 1; //界面数据不刷新
@@ -60,20 +61,49 @@ Page({
   },
 
   /* touch */
-  touchStart(){
-    console.log('touchstart');
+  touchStart(event){
+    console.log('touchstart',event);
   },
   touchMove(){
     console.log('touchmove');
   },
-  touchEnd(){
-    console.log('touchend');
+  touchEnd(event){
+    console.log('touchend,',event);
   },
   tap(){
     console.log('tap');
   },
   longpress(){
     console.log('longpress');
+  },
+  outerTap(event){
+    console.log('outerTap',event)
+  },
+  innerTap(event) {
+    console.log('innerTap', event)
+  },
+  getIndex(event){
+    var dataSet = event.currentTarget.dataset;
+    console.log(dataSet.index,dataSet.item);
+  },
+  /** 事件捕获和冒泡 */
+  handleTap1(){
+    console.log('handleTap1');
+  },
+  catchTap1() {
+    console.log('catchTap1');
+  },
+  handleTap2() {
+    console.log('handleTap2');
+  },
+  catchTap2() {
+    console.log('catchTap2');
+  },
+  handleTap3() {
+    console.log('handleTap3');
+  },
+  catchTap3() {
+    console.log('catchTap3');
   },
   /**
    * 生命周期函数--监听页面加载

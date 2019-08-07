@@ -1,0 +1,14 @@
+/* components/my-comp/my-comp.wxss */
+.container1 {
+  height:60rpx;
+}
+.tab {
+  background: cadetblue;
+  height: 60rpx;
+  line-height: 60rpx;
+  color: #fff;
+  font-size: 40rpx;
+}
+.active {
+  color: yellow;
+}

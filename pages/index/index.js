@@ -15,7 +15,9 @@ Page({
     users: [],
     img: '',
     price: 5.678,
-    items: ['aa','bb','cc']
+    items: ['aa','bb','cc'],
+    customName: '',
+    num: 0
   },
   addNum(){
     //this.data.count += 1; //界面数据不刷新
@@ -59,7 +61,16 @@ Page({
   scrollTolower(event) {
     console.log('滚动到底部或者右边时',event)
   },
-
+  addEvent(event){
+    console.log(event)
+    this.setData({
+      customName: event.detail.name,
+      num: this.data.num + 1
+    })
+  },
+  getTabVal(event){
+    console.log(event.detail.index,event.detail.item)
+  },
   /* touch */
   touchStart(event){
     console.log('touchstart',event);

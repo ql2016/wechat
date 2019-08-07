@@ -1,0 +1,9 @@
+<!--components/my-comp/my-comp.wxml-->
+<!-- <view class="container1 titleclass">我是{{title}}组件</view>
+<button size="mini" bind:tap="addNum">点击+1</button> -->
+<view class="tab flex">
+  <block wx:for="{{tab}}" wx:key="{{index}}" >
+    <view class="flex-item {{currentIndex == index ? 'active' : ''}}" bind:tap="getTab" data-index="{{index}}">{{item}}</view>
+  </block>
+
+</view>

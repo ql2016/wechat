@@ -80,15 +80,21 @@
       capture-bind:tap="catchTap1">
   最外层
   <view class="middleside"
-        bind:tap="handleTap2"
+        catch:tap="handleTap2"
         capture-bind:tap="catchTap2">
     中间层
     <view class="innerside"
-          catch:tap="handleTap3"
+          bind:tap="handleTap3"
           capture-bind:tap="catchTap3">
       最里层
     </view>
   </view>
 </view>
 
+<!--自定义组件-->
+<!-- <my-comp title="自定义" titleclass="blue" bind:addEvent="addEvent"></my-comp>
+<view>{{customName}}数量：{{num}}</view> -->
+<!-- <my-comp titleclass="pink"></my-comp> -->
+
+<my-comp tab="{{items}}" bind:getTabVal="getTabVal"></my-comp>
 

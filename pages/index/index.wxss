@@ -89,3 +89,9 @@
   background: aquamarine;
   color: #fff;
 }
+.blue {
+  color: blue;
+}
+.pink {
+  color: pink;
+}

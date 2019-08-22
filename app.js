@@ -5,14 +5,64 @@ app.js主要做的工作：
 3. 因为App()实例只有一个，并且是全局共享的（单例对象），可以将一些共享数据放在这里
 */
 App({
-
+  globalData: {
+    token: ''
+  },
   /**
    * 当小程序初始化完成时，会触发 onLaunch（全局只触发一次）
    */
   onLaunch: function (options) {
-    console.log(options)
+    var token = wx.getStorageSync('TOKEN');
+    if(token && token.length){
+      this.check_token(token);
+    }else {
+      this.login();
+    }
   },
+  login(){
+    console.log('22222')
+    //1.获取code
+    wx.login({
+      success: (res) => {
+        var code = res.code;
+        //2.向自己的服务器发送请求，获取token
+        wx.request({
+          url: '',
+          method: 'post',
+          data: {
+            code
+          },
+          success: (res) => {
+            var token = res.data.token;
+            this.globalData.token = token;//把token存储在全局变量里
+            wx.setStorage({
+              key: TOKEN,
+              data: token,
+              success: (res) => {
 
+              }
+            })
+          }
+        })
+      }
+    })
+  },
+  check_token(token){
+    wx.request({
+      url: '',
+      method: 'post',
+      header: {
+        token
+      },
+      success: (res) => {
+        if(!res.data.errCode){
+          this.globalData.token = token
+        }else {
+          this.login()
+        }
+      }
+    })
+  },
   /**
    * 当小程序启动，或从后台进入前台显示，会触发 onShow
    */

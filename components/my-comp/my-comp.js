@@ -3,6 +3,7 @@ Component({
   /**
    * 组件的属性列表
    */
+  
   properties: {
     //title: String,
     title: {
@@ -20,7 +21,8 @@ Component({
    */
   data: {
     count: 0,
-    currentIndex: 0
+    currentIndex: 0,
+    compNum: 10
   },
 
   /**
@@ -36,9 +38,16 @@ Component({
         currentIndex: index
       })
       this.triggerEvent('getTabVal',{index:index,item:this.properties.tab[index]})
-    }
+    },
+    //与页面组件约定一个方法调用
+    changeCompNum(num){
+      this.setData({
+        compNum: this.data.compNum + num
+      }) 
+    },
   },
   options: {
-    styleIsolation: 'apply-shared'
+    styleIsolation: 'apply-shared',
+    multipleSlots: true, //多个插槽
   }
 })

@@ -5,5 +5,17 @@
   <block wx:for="{{tab}}" wx:key="{{index}}" >
     <view class="flex-item {{currentIndex == index ? 'active' : ''}}" bind:tap="getTab" data-index="{{index}}">{{item}}</view>
   </block>
-
 </view>
+<view>count:{{compNum}}</view>
+
+<!--单个插槽slot-->
+<view>单个插槽slot的头部</view>
+<slot></slot>
+<view>单个插槽slot的头部</view>
+
+<!--多个插槽slot-->
+<view>多个插槽slot的头部</view>
+<slot name='slot1'></slot>
+<slot name='slot2'></slot>
+<slot name='slot3'></slot>
+<view>多个插槽slot的头部</view>

@@ -96,5 +96,25 @@
 <view>{{customName}}数量：{{num}}</view> -->
 <!-- <my-comp titleclass="pink"></my-comp> -->
 
-<my-comp tab="{{items}}" bind:getTabVal="getTabVal"></my-comp>
+<my-comp tab="{{items}}" bind:getTabVal="getTabVal" class="sel"><button>单个插槽的位置</button><slider slot='slot2'></slider><button slot='slot1'>多个插槽按钮</button></my-comp>
+<button size='mini' bind:tap='changeComNum'>点击改变组件内的数据\n</button>
 
+<!--弹窗-->
+<view>弹窗</view>
+<button size='mini' bindtap="showToast">showToast</button>
+<button size='mini' bindtap="showModal">showModal</button>
+<button size='mini' bindtap="showLoading">showLoading</button>
+<button size='mini' bindtap="showAction">showActionSheet</button>
+
+<!--分享-->
+<button size="mini" open-type="share">分享</button>
+
+<!--页面跳转-->
+<navigator url="/pages/detail/detail?name=luck&age=18">跳转到详情页</navigator>
+<navigator url="/pages/detail/detail" open-type="redirect">关闭当前页，跳转到详情页</navigator>
+<navigator url="/pages/my/my" open-type="switchTab">关闭非tabBar页，跳转到tabBar页</navigator>
+<navigator url="/pages/detail/detail" open-type="reLaunch">关闭所有页面，打开到应用内的某个页面</navigator>
+<view>{{linkData}}</view>
+
+<!--代码跳转-->
+<button size="mini" bindtap="skipDetail">跳转到详情页</button>

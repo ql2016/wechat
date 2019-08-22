@@ -17,7 +17,8 @@ Page({
     price: 5.678,
     items: ['aa','bb','cc'],
     customName: '',
-    num: 0
+    num: 0,
+    linkData: '通过跳转页面改变这里的数据'
   },
   addNum(){
     //this.data.count += 1; //界面数据不刷新
@@ -96,6 +97,21 @@ Page({
   getIndex(event){
     var dataSet = event.currentTarget.dataset;
     console.log(dataSet.index,dataSet.item);
+  },
+  //改变组件内的数据
+  changeComNum(){
+    var sel = this.selectComponent('.sel');
+    console.log(sel);
+    // sel.setData({
+    //   compNum: sel.data.compNum + 10
+    // })
+    sel.changeCompNum(10)
+  },
+  //页面跳转
+  skipDetail(){
+    wx.navigateTo({
+      url: '/pages/detail/detail?name=哈哈&age=20',
+    })
   },
   /** 事件捕获和冒泡 */
   handleTap1(){
@@ -178,6 +194,63 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-    console.log('分享')
+    return {
+      title: '我的小程序',
+      path: 'pages/my/my',
+      imageUrl: '../../assets/tabbar/cart.png'
+    }
+  },
+
+  //showToast
+  showToast(){
+    wx.showToast({
+      title: 'toast提示',
+      icon: 'loading',
+      duration: 5000,
+      image: '../../assets/tabbar/report_selected.png',
+      success: function(){
+        console.log('showToast')
+      }
+    })
+  },
+  //showModal
+  showModal(){
+    wx.showModal({
+      title: '标题',
+      content: '内容',
+      //showCancel: true,
+      cancelText: '否',
+      cancelColor: 'red',
+      confirmText: '是',
+      confirmColor: 'blue',
+      success: function(res){
+        if(res.confirm){
+          console.log('用户点击了是');
+        }
+        if(res.cancel){
+          console.log('用户点击了否');
+        }
+      }
+    })
+  },
+  //showLoading
+  showLoading(){
+    wx.showLoading({
+      title: '加载中',
+      success: function(res){
+        setTimeout(function(){
+           wx.hideLoading();
+        },1000)
+      }
+    })
+  },
+  //showActionSheet
+  showAction(){
+    wx.showActionSheet({
+      itemList: ['保存','继续编辑'],
+      success: function(res){
+        console.log(res.tapIndex)
+      }
+    })
   }
 })

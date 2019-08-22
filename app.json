@@ -2,7 +2,8 @@
   "pages": [
     "pages/index/index",
     "pages/shoppingCart/shoppingCart",
-    "pages/my/my"
+    "pages/my/my",
+    "pages/detail/detail"
   ],
   "window": {
     "navigationBarBackgroundColor": "#ff4444",

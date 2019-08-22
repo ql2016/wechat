@@ -1,4 +1,4 @@
-// pages/detail/detail.js
+// pages/category/category.js
 Page({
 
   /**
@@ -12,7 +12,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log(options)
+
   },
 
   /**
@@ -40,21 +40,9 @@ Page({
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-     //1.获取首页的页面对象
-     //getCurrentPages当前所有活跃的页面
-      var pages = getCurrentPages();
-      
-      var home = pages[pages.length-2];
-      console.log(home);
-      home.setData({
-        linkData: '跳转回来我就变了'
-      })
+
   },
-  skipBack(){
-    wx.navigateBack({
-      delta: 1
-    })
-  },
+
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */

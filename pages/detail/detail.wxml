@@ -1,6 +1,0 @@
-<!--pages/detail/detail.wxml-->
-<text>pages/detail/detail.wxml</text>
-<navigator open-type="navigateBack">返回</navigator>
-
-<!--代码跳转返回-->
-<button size="mini" bindtap="skipBack">返回</button>

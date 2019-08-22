@@ -1,4 +1,4 @@
-// pages/shoppingCart/shoppingCart.js
+// pages/profile/profile.js
 Page({
 
   /**
